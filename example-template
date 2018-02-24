@@ -1,0 +1,11 @@
+frontend app
+  bind 0.0.0.0:8080
+{{range $x := $.Entries}}
+  acl {{$x.Name}} hdr(host) -i {{$x.Name}}.domain.com
+  use_backend {{$x.Name}} if {{$x.Name}}
+{{end}}
+{{range $x := $.Entries}}
+backend {{$x.Name}}
+  server s1 {{$x.Host}}:{{$x.HostPort}}
+{{end}}
+
