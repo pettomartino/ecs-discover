@@ -46,8 +46,8 @@ frontend app
   use_backend container_app2_pr if container_app2_pr
 
 backend container_app1_pr
-  server s1 10.10.81.255:33089
+  server s1 10.10.85.255:33089
 
 backend container_app2_pr
-  server s1 10.10.81.255:33089
+  server s1 10.10.81.255:33080
 ```
